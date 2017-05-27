@@ -153,7 +153,7 @@ typedef void (^_FDViewControllerWillAppearInjectBlock)(UIViewController *viewCon
 
 - (void)fd_pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-	if ([self isKindOfClass:[MFMessageComposeViewController class]] && ![self.viewControllers containsObject:viewController]) {
+	if (([self isKindOfClass:[MFMessageComposeViewController class]] || [self isKindOfClass:[MFMailComposeViewController class]]) && ![self.viewControllers containsObject:viewController]) {
 		
 		[self fd_pushViewController:viewController animated:animated];
 		return;
